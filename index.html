@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Lab2</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Holtwood+One+SC&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    </head>
+    <body>
+        <header class="header">
+            <nav class="navbar">
+                <img src="images/logo.png" alt="logo" class="header_logo">
+                <div class="navbar_links">
+                    <a href="#" class="navbar_item active">HOME</a>
+                    <a href="#" class="navbar_item">PHONES</a>
+                    <a href="#" class="navbar_item">TABLETS</a>
+                    <a href="#" class="navbar_item">ACCESSORIES</a>
+                </div>
+                <div class="navbar_icons">
+                    <a href="#"><img src="images/fav.png" alt="Favorites" class="nav_icon"></a>
+                    <div class="separator"></div>
+                    <a href="#" onclick="openCart()"><img src="images/shop_bar.png" alt="Cart" class="nav_icon"></a>
+                </div>
+            </nav>
+        </header>
+
+        <div id="cartModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h2>Your Cart</h2>
+                <div id="cartItems"></div>
+            </div>
+        </div>
+
+        <main>
+            <div class="main_photo">
+                <img src="./images/baner.png" alt="main_photo">
+            </div>
+            
+            <div id="myModal" class="modal">
+                <div class="modal-content">
+                    <span class="close_adv_btn" id="closeAdvBtn">&times;</span>
+                    <p id="advertismentTimer"></p>
+                </div>
+            </div>
+            
+            <div id="nonModalWindow" class="non-modal-window">
+                <div class="window-content">
+                    <h2>Non modal windowww</h2>
+                    <p>Agree or not ?!</p>
+                    <ul>
+                        <li id="agreeWindowbtn" class="agree-btn">Agree</li>
+                        <li id="declineWindowBtn" class="close-btn">Decline</li>
+                    </ul> 
+                </div>
+            </div>
+        
+            <div class="filter-buttons">
+                <button onclick="loadProducts('All')" class="but">All</button>
+                <button onclick="loadProducts('Phones')" class="but">Phones</button>
+                <button onclick="loadProducts('Laptops')" class="but">Laptops</button>
+                <button onclick="loadProducts('Accessories')" class="but">Accessories</button>
+            </div>
+
+            <div id="container-id" class="products-container"></div>
+
+            <div>
+                <canvas id="myChart"></canvas>
+              </div>
+              
+              <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+              
+              <script>
+                const ctx = document.getElementById('myChart');
+              
+                new Chart(ctx, {
+                  type: 'bar',
+                  data: {
+                    labels: ['Laptop APPLE MacBook Air 15.3 Midnight', 'Apple iPhone 14 Pro 128GB (Deep Purple) (e-Sim)', 'Clear Case for iPhone 15 Pro With MagSafe', 'Apple iPhone 15 Pro Max 256Gb uBlue Titanium', 'MacBook Pro 13 Apple M2 (8C CPU/10C GPU)', 'Apple iPhone 12 Pro Max A2342 128 G'],
+                    datasets: [{
+                      label: 'Price comparison',
+                      data: [1010, 899, 55, 1099, 2200, 680],
+                      borderWidth: 1
+                    }]
+                  },
+                  options: {
+                    scales: {
+                      y: {
+                        beginAtZero: true
+                      }
+                    }
+                  }
+                });
+              </script>
+
+            <button id="scrollBtn" class="scroll-btn">|</button>
+
+            <script src="chart.js"></script>    
+            
+            <script src="./script.js"></script>
+            <script src="./advertisment.js"></script>
+            <script src="./subscription.js"></script>
+        </main>
+    </body>
+    </html>
+
